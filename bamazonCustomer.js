@@ -80,7 +80,7 @@ function userPrompt() {
 
                 else {
                     console.log("=======================================\nAww Man!" +
-                        "\nInsuffucient Stock Alert!  Please re-check the Inventroy Qty and re-try your order.\n" +
+                        "\nInsuffucient Stock Alert!  Please re-check the Inventory Qty and re-try your order.\n" +
                         "=======================================");
                     nextStep();
 
@@ -112,7 +112,7 @@ function userPrompt() {
 
                     case "Complete my order":
                         console.log("******************************************************************")
-                        console.log("Thank you for shopping at Juan's Bamazon Store.  Have agreat day!")
+                        console.log("Thank you for shopping at Juan's Bamazon Store.  Have a great day!")
                         console.log("******************************************************************")
                         break;
 

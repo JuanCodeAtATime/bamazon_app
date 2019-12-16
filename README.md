@@ -2,7 +2,7 @@
 
 ***This is my Bamazon App!*** 
 
-It's sort of like [Amazon] (obviously, not in depth and scope), but it mimics an online shopping experience.  
+It's sort of like **Amazon** (obviously, not in depth and scope), but it mimics an online shopping experience.  
 
 Upon entering the application, it renders all the items available for sale. These items are imported from the ```MySQL``` bamazon database as seen on the ```bamazonCustomer.js``` file.  The items for sale are from the MySQL ```products``` table and includes the product ids, names, and prices of items for sale.
 

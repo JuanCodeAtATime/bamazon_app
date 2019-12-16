@@ -4,11 +4,9 @@
 
 It's sort of like **Amazon** (obviously, not in depth nor scope), but it mimics an online shopping experience.  
 
-Upon entering this **Node** application, it renders all the items available for sale on the command line. 
+Upon entering this **Node** application, it renders all the items available for sale on the command line, using a ```for loop``` to display the items by product id, name, and price.
 
-These items are imported from the **MySQL** ```bamazon database``` as seen on the ```bamazonCustomer.js``` file.  
-
-The items for sale are from the ```bamazon.products``` table.  A ```for loop``` is used to display these items on the command line by product id, name, and price.
+These items are imported from the **MySQL** ```bamazon database``` ```products``` table as seen on the ```bamazonCustomer.js``` file.  
 
 After displaying the items for sale, the ```inquirer.js``` command line utility greets the customer, then prompts the customer with the following two messages:
 - *Please enter the ID# of item you'd like to purchase*

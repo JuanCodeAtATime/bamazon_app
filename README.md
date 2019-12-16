@@ -21,5 +21,5 @@ If the store does have enough of the product, it fulfills the customer's order a
 As expected, it updates the **MySQL** database to reflect the remaining quantity.
 
 
-***Check out the video to see this Bamazon Store in action!***
+*Check out the video to see this Bamazon Store in action!*
 https://drive.google.com/file/d/1HGLKx476YddnST6rvn1iHu0ngvbpXOC-/view

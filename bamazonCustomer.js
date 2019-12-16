@@ -80,7 +80,7 @@ function userPrompt() {
 
                 else {
                     console.log("=======================================\nAww Man!" +
-                        "\nInsuffucient Stock Alert!  Please re-check the Inventory Qty and re-try your order.\n" +
+                        "\nInsufficient Stock Alert!  Please re-check the Inventory Qty and re-try your order.\n" +
                         "=======================================");
                     nextStep();
 

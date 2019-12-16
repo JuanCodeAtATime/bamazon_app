@@ -4,7 +4,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
 
-    // Your port; if not 3306
+    // Your port;
     port: 3306,
 
     // Your username
@@ -17,51 +17,110 @@ var connection = mysql.createConnection({
 
 //Establishing connection
 connection.connect(function (err) {
+
     if (err) throw err;
     console.log("connected as id " + connection.threadId);
     userPrompt();
+
 });
 
 
 function userPrompt() {
     connection.query("SELECT * FROM products", function (err, results) {
         if (err) throw err;
-        console.log(results);
-        // connection.end();
-        // once you have the items, prompt the user for which they'd like to quantity on
-        inquirer
-            .prompt([
-                {
-                    name: "choice",
-                    type: "input",
-                    message: "What's the ID of the product you want to buy?"
-                },
-                {
-                    name: "quantity",
-                    type: "input",
-                    message: "How many would you like to purchase?"
-                }
-            ])
-
-            .then(function (answer) {
-                console.log("The product ID I entered: " + answer.choice)
-                console.log("The product quantity I ordered: " + answer.quantity)
-                connection.query(
-                    "UPDATE products SET stock_quantity = stock_quantity - ? WHERE id=?", [answer.quantity, answer.choice],
-                    function (err, results) {
-                        if (err) throw err;
-                        for (var i = 0; i < results.length; i++) {
-                            console.log(results[i].id + " | " + results[i].product_name + " | " + results[i].stock_quantity + " | " + results[i].price);
-                        }
-                        console.log(results);
-                        userPrompt();
-
-                    }
-                )
-            }
-            );
+        for (var i = 0; i < results.length; i++) {
+            console.log("\nID#: " + results[i].id + " | " + results[i].product_name + " | " + " Inventory Qty: " + results[i].stock_quantity + " | " + " Price: $" + results[i].price);
+        }
     });
+    inquirer
+        .prompt([
+            {
+                name: "choice",
+                type: "input",
+                message: "=====================================================================" +
+                    "\nWelcome to Juan's Bamazon Store! Please enter the ID# of item you'd like to purchase =)\n\n",
+                validate: function (value) {
+                    if (isNaN(value) == false) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            },
+            {
+                name: "quantity",
+                type: "input",
+                message: "How many would you like to purchase?",
+                validate: function (value) {
+                    if (isNaN(value) == false) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        ])
+        .then(function (answer) {
 
+            connection.query('SELECT * FROM products WHERE id=' + answer.choice, function (err, results) {
+                if (err) throw err;
+
+                if (results[0].stock_quantity - answer.quantity >= 0) {
+                    console.log("Today's your day!  Bamazon has suffiecient inventory of product ID# " + answer.choice + " to fulfill your order!");
+                    console.log("Your purchase total is $" + results[0].price * answer.quantity);
+                    console.log("Thank You for your purchase!");
+                    connection.query(
+                        "UPDATE products SET stock_quantity = stock_quantity - ? WHERE id=?", [answer.quantity, answer.choice],
+                        function (err, results) {
+                            if (err) throw err;
+                            nextStep();
+                        });
+
+                }
+
+                else {
+                    console.log("=======================================\nAww Man!" +
+                        "\nInsuffucient Stock Alert!  Please re-check the Inventroy Qty and re-try your order.\n" +
+                        "=======================================");
+                    nextStep();
+
+                }
+            });
+        });
+
+    function nextStep() {
+        inquirer
+            .prompt({
+                name: "action",
+                type: "rawlist",
+                message: "What would you like to do now?",
+                choices: [
+                    "Keep Shopping",
+                    "Take another look at the products available",
+                    "Complete my order"
+                ]
+            })
+            .then(function (answer) {
+                switch (answer.action) {
+                    case "Keep Shopping":
+                        userPrompt();
+                        break;
+
+                    case "Take another look at the products available":
+                        userPrompt();
+                        break;
+
+                    case "Complete my order":
+                        console.log("******************************************************************")
+                        console.log("Thank you for shopping at Juan's Bamazon Store.  Have agreat day!")
+                        console.log("******************************************************************")
+                        break;
+
+                }
+
+
+            })
+    }
 }
 
 

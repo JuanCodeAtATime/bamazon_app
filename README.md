@@ -14,11 +14,11 @@ After displaying the items for sale, the ```inquirer.js``` command line utility 
 - *Please enter the ID# of item you'd like to purchase*
 - *How many would you like to purchase?*
 
-Once the customer has placed the order, the application checks if the store has sufficient stock available to fulfill the customer's request.
+Once the customer has placed the order, the application checks the ```bamazon database``` (aka, "Store") to see if there is sufficient stock available to fulfill the customer's request.
 
 If not, it lets the customer know that there isn't sufficient quantity.
 
-If the store does have enough of the product, it fulfills the customer's order and provides the total purchase price.
+If there is sufficient stock available, the application "fulfills the customer's order" and provides the total purchase price.
 
 As expected, it updates the **MySQL** database to reflect the remaining quantity.
 

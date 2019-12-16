@@ -2,7 +2,7 @@
 
 ### Overview
 The Bamazon Node application is sort of like **Amazon**, obviously not in depth or scope, but it does mimic an online shopping experience.  
-Upon entering this **Node** application, it renders all the items available for sale on the command line, using a ```for loop``` to display the items by product id, name, and price.
+Upon entering this **Node** application, it renders all the items available for sale on the command line.  A ```for loop``` is used to display the items by product id, name, and price.
 
 ### MySQL
 These items are imported from the **MySQL** ```bamazon database``` ```products``` table as seen on the ```bamazonCustomer.js``` file.  

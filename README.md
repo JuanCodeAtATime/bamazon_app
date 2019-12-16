@@ -8,9 +8,9 @@ Upon entering the application, it renders all the items available for sale. Thes
 
 The items for sale are from the ```bamazon.products``` table.  A *for loop* is used to display these items by product id, name, and price.
 
-After displaying the items for sale, the ```inquirer.js``` command line utility is then used to prompt the customer with the following two messages:
-- The application asks for the ID of the product the customer wants to buy
-- It also asks for the quantity of the requested item
+After displaying the items for sale, the ```inquirer.js``` command line utility greets the customer, then prompts the customer with the following two messages:
+- *Please enter the ID# of item you'd like to purchase*
+- *How many would you like to purchase?*
 
 Once the customer has placed the order, the application checks if the store has sufficient stock available to fulfill the customer's request.
 

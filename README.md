@@ -2,6 +2,7 @@
 
 ### Overview
 The Bamazon **Node** application is sort of like **Amazon**, obviously not in depth or scope, but it does mimic an online shopping experience.  
+
 Upon entering this application, it renders all the items available for sale on the command line.  A ```for loop``` is used to display the items by product id, name, and price.
 
 ### MySQL
@@ -12,11 +13,9 @@ After displaying the items for sale, the ```inquirer.js``` command line utility 
 - *How many would you like to purchase?*
 
 ### Product Queries, Views, and Purchases
-Once the customer has placed the order, the application checks the ```bamazon database``` (aka, "Store") to see if there is sufficient stock available to fulfill the customer's request.
+Once the customer has entered the order, the application checks the ```bamazon database``` (aka, "Store") to see if there is sufficient stock available to fulfill the customer's request.  
 
-If not, it lets the customer know that there isn't sufficient quantity.
-
-If there is sufficient stock available, the application "fulfills the customer's order" and provides the total purchase price.
+If there is sufficient stock available, the application "fulfills the customer's order" and provides the total purchase price.  If there isn't, it lets the customer know that there isn't sufficient quantity to fulfill the order.
 
 As expected, it updates the **MySQL** database to reflect the remaining quantity.
 

@@ -18,7 +18,7 @@ If not, it lets the customer know that there isn't sufficient quantity.
 
 If the store does have enough of the product, it fulfills the customer's order and provides the total purchase price.
 
-As expected, it updates the MySQL database to reflect the remaining quantity.
+As expected, it updates the **MySQL** database to reflect the remaining quantity.
 
 
 ***Check out the video to see this Bamazon Store in action!***
